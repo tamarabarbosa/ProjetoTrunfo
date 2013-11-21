@@ -9,14 +9,35 @@ package trunfo;
  * @author tamara
  */
 public class Carta {
+    
     private String nomeCarta;
     private int forca;
     private int velocidade;
     private int habilidade;
     private int equipamento;
     private int inteligencia;
-    private static Deck deck=null;
+    private static Deck deck = null;
 
+    public Carta(Deck deck){
+        Carta.deck = deck;
+        this.nomeCarta = "Sem Nome";
+        this.forca = 0;
+        this.velocidade = 0;
+        this.habilidade = 0;
+        this.equipamento = 0;
+        this.inteligencia = 0;
+    }
+    
+    public Carta(Deck deck, String nomeCarta, int forca, int velocidade, int habilidade, int equipamento, int inteligencia) {
+        Carta.deck = deck;
+        this.nomeCarta = nomeCarta;
+        this.forca = forca;
+        this.velocidade = velocidade;
+        this.habilidade = habilidade;
+        this.equipamento = equipamento;
+        this.inteligencia = inteligencia;
+    }
+   
     public String getNomeCarta() {
         return nomeCarta;
     }
@@ -84,6 +105,13 @@ public class Carta {
         return deck;
     }
     
-    
-    
+    public void criaCarta(Deck deck, String nomeCarta, int forca, int velocidade, int habilidade, int equipamento, int inteligencia) {
+        Carta.deck = deck;
+        this.setNomeCarta (nomeCarta);
+        this.setForca (forca);
+        this.setVelocidade (velocidade);
+        this.setHabilidade (habilidade);
+        this.setEquipamento (equipamento);
+        this.setInteligencia (inteligencia);
+    }
 }
