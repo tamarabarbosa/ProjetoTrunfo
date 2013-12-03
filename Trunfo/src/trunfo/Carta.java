@@ -9,7 +9,7 @@ package trunfo;
  * @author tamara
  */
 public class Carta {
-    
+    public final static int F=1, V=2,H=3 ,E=4 ,I=5,N=0;
     private String nomeCarta;
     private int forca;
     private int velocidade;
@@ -37,6 +37,7 @@ public class Carta {
         this.equipamento = equipamento;
         this.inteligencia = inteligencia;
     }
+ 
    
     public String getNomeCarta() {
         return nomeCarta;
@@ -113,5 +114,26 @@ public class Carta {
         this.setHabilidade (habilidade);
         this.setEquipamento (equipamento);
         this.setInteligencia (inteligencia);
+    }
+    
+    public int getAtributo(int atributo){
+	if(atributo==Carta.F){
+            return this.getForca();
+	}
+        else if(atributo==Carta.V){
+            return this.getVelocidade();
+	}
+        else if(atributo==Carta.H){
+            return this.getHabilidade();
+	}
+        else if(atributo==Carta.E){
+            return this.getEquipamento();
+	}
+        else if(atributo==Carta.I){	
+            return this.getInteligencia();
+	}
+        else{
+            return 0;
+	}
     }
 }
