@@ -12,22 +12,17 @@ import java.io.InputStreamReader;
  *
  * @author tamara
  */
-public class Jogo {
+public final class Jogo {
     private final static int classificacaoIndicativa=8;
 	private static BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in));
 	private Deck deck;
-	private Jogador player;
+	private JogadorUsuario player;
 	private JogadorVirtual computador=new JogadorVirtual();
 	
 
 	public Jogo() {
             this.deck = new Deck();
-            this.player = new Jogador(Jogo.Nome());
-		
-		//FrameGame jogo = new FrameGame();
-		
-		//jogo.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+            this.player = new JogadorUsuario(Jogo.Nome());
             this.opcaoMenu();
 		
             final int cartasJ[] = player.getDeck();
@@ -90,8 +85,7 @@ public class Jogo {
 			}
 		}
 		if(idade<=classificacaoIndicativa){
-			System.out.println("A idade minima para jogar é de "+(classificacaoIndicativa+1)+ " anos de idade.");
-			System.exit(0);
+			System.out.println("A idade recomendada para jogar é de "+(classificacaoIndicativa+1)+ " anos de idade.");
 		}
 		return idade;
 	}
@@ -132,7 +126,7 @@ public class Jogo {
 						opcao=Jogo.bufferRead.readLine();
 						if(opcao.equals("1") || opcao.equals("2")){
 							if(opcao.equals("2")){
-								Jogador.setDificuldade("Difícil");
+								JogadorUsuario.setDificuldade("Difícil");
 							}
 						}else continue;
 						fakeClear();
@@ -184,7 +178,7 @@ public class Jogo {
 		System.out.println("OFFNURT:");
 		System.out.println("1) Jogar");
 		System.out.println("2) Instruções");
-		System.out.println("3) Dificuldade("+Jogador.getDificuldade()+")");
+		System.out.println("3) Dificuldade("+JogadorUsuario.getDificuldade()+")");
 		System.out.println("4) Sobre o jogo");
 		System.out.println("5) Créditos");
 		System.out.println("0) Sair");

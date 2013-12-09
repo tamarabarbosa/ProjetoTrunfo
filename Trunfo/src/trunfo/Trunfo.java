@@ -16,7 +16,7 @@ public class Trunfo {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Object jogo=new Jogo();
+        Object jogo = new Jogo();
         
     }
 }
