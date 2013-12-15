@@ -18,6 +18,7 @@ import static org.junit.Assert.*;
  * @author Ina Tayane
  */
 public class JogadorVirtualTest {
+    JogadorVirtual umJogador = new JogadorVirtual();
     
     public JogadorVirtualTest() {
     }
@@ -43,79 +44,21 @@ public class JogadorVirtualTest {
      */
     @Test
     public void testSetNomeDoJogador_0args() {
-        System.out.println("setNomeDoJogador");
-        JogadorVirtual instance = new JogadorVirtual();
-        instance.setNomeDoJogador();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        umJogador.setNomeDoJogador();
+        for (int i = 0; i < JogadorVirtual.nomes.length; i++) {
+        if (umJogador.getNomeDoJogador() != JogadorVirtual.nomes[i])
+            fail();
+        }
     }
-
-    /**
-     * Test of setNomeDoJogador method, of class JogadorVirtual.
-     */
-    @Test
-    public void testSetNomeDoJogador_String() {
-        System.out.println("setNomeDoJogador");
-        String nomeDoJogador = "";
-        JogadorVirtual instance = new JogadorVirtual();
-        instance.setNomeDoJogador(nomeDoJogador);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
     /**
      * Test of getFraseDeApresentacao method, of class JogadorVirtual.
      */
     @Test
     public void testGetFraseDeApresentacao() {
-        System.out.println("getFraseDeApresentacao");
-        JogadorVirtual instance = new JogadorVirtual();
-        String expResult = "";
-        String result = instance.getFraseDeApresentacao();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of escolheAtributo method, of class JogadorVirtual.
-     */
-    @Test
-    public void testEscolheAtributo() {
-        System.out.println("escolheAtributo");
-        Deck deck = null;
-        int posicao = 0;
-        JogadorVirtual instance = new JogadorVirtual();
-        int expResult = 0;
-        int result = instance.escolheAtributo(deck, posicao);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setDificuldade method, of class JogadorVirtual.
-     */
-    @Test
-    public void testSetDificuldade() {
-        System.out.println("setDificuldade");
-        String dif = "";
-        JogadorVirtual.setDificuldade(dif);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getDificuldade method, of class JogadorVirtual.
-     */
-    @Test
-    public void testGetDificuldade() {
-        System.out.println("getDificuldade");
-        String expResult = "";
-        String result = JogadorVirtual.getDificuldade();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-    
+        String frase = umJogador.getFraseDeApresentacao();
+        for (int i = 0; i < JogadorVirtual.fraseDeApresentacao.length; i++) {
+        if (frase != JogadorVirtual.fraseDeApresentacao[i])
+            fail();
+        }
+    }  
 }

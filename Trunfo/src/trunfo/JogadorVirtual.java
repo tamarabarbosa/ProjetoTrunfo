@@ -10,7 +10,7 @@ package trunfo;
  */
 public class JogadorVirtual extends Jogador{
     
-	private final static String[] nomes = {
+	static final String[] nomes = {
 		"André", "Áquilla","Alex","Alexandre","Allan","Anderson","Bruno",
 		"Lucas","Eliseu", "Rodrigo","Matheus","Gabriel","Rafael","Igor", 
 		"Felipe","Paulo","Antônio","Jefferson", "João", "Marcos",
@@ -58,7 +58,7 @@ public class JogadorVirtual extends Jogador{
 		"Maíra", "Myrella", "Renata", "Luana", "Mariana", "Leila", 
 		"Iria", "Thalita", "Samara", "Priscila","Ivaldino","Kaísa", "Thabata"};
         
-        private final String[] fraseDeApresentacao={
+        static final String[] fraseDeApresentacao = {
 		"Eu serei seu oponente!","Você não tem a minima chance de vencer!", "Bom jogo",
 		"Espero uma partida amistosa!", "Onde está meu oponente?", "Boa sorte",
 		"Chamem alguem do meu nível!", "Vamos brincar?", "Estou vendo que vou me divertir hoje!",
@@ -89,10 +89,10 @@ public class JogadorVirtual extends Jogador{
 		return this.fraseDeApresentacao[((int)( Math.random() * fraseDeApresentacao.length))]; 
 	}
         
-    public int escolheAtributo(Deck deck, int posicao){
+    public static int escolheAtributo(Deck deck, int posicao){
 	int atributo=0;
 	int escolhido=0;
-	if(Jogador.dificuldade.equalsIgnoreCase("Difícil")){
+	if(JogadorVirtual.dificuldade.equalsIgnoreCase("Difícil")){
             for(int i=0; i<6;i++){
 		if(deck.getAtributo(posicao, i)>atributo){
                     atributo=deck.getAtributo(posicao, i);
