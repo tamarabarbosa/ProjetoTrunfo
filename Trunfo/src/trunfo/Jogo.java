@@ -90,9 +90,8 @@ public final class Jogo {
 					 * */
 					break;
 				case "2":
-					//instruções
+					instrucoes();
 					continue;
-					//break;
 				case "3":
 					try{
 						System.out.println("Selecione a dificuldade:\n1)Fácil\n2)Difícil");
