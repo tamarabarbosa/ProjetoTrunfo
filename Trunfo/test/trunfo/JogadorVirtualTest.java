@@ -46,8 +46,8 @@ public class JogadorVirtualTest {
     public void testSetNomeDoJogador_0args() {
         umJogador.setNomeDoJogador();
         for (int i = 0; i < JogadorVirtual.nomes.length; i++) {
-        if (umJogador.getNomeDoJogador() != JogadorVirtual.nomes[i])
-            fail();
+            if(umJogador.getNomeDoJogador() == JogadorVirtual.nomes[i])
+                assertEquals(JogadorVirtual.nomes[i],umJogador.getNomeDoJogador());
         }
     }
     /**
@@ -57,8 +57,8 @@ public class JogadorVirtualTest {
     public void testGetFraseDeApresentacao() {
         String frase = umJogador.getFraseDeApresentacao();
         for (int i = 0; i < JogadorVirtual.fraseDeApresentacao.length; i++) {
-        if (frase != JogadorVirtual.fraseDeApresentacao[i])
-            fail();
+            if (frase == JogadorVirtual.fraseDeApresentacao[i])
+                assertEquals(JogadorVirtual.fraseDeApresentacao[i],frase);        
         }
     }  
 }
