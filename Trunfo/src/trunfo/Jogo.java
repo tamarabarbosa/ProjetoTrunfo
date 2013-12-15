@@ -109,14 +109,6 @@ public final class Jogo {
 					}
 					validarMenu=true;
 					break;
-				case "4":
-					//sobre o jogo
-					validarMenu=false;
-					break;
-				case "5":
-					//creditos
-					validarMenu=false;
-					break;
 				case "0":
 					try{
 						System.out.println("Deseja mesmo sair do jogo ?(0 para sair)");
