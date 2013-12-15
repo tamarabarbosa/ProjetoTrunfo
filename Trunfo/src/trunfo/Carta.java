@@ -133,7 +133,8 @@ public class Carta {
             return this.getInteligencia();
 	}
         else{
-            return 0;
+            int i =(int) (1 + (Math.random() * 5));
+            return this.getAtributo(i);
 	}
     }
 }

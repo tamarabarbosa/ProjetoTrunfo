@@ -13,7 +13,6 @@ import java.io.InputStreamReader;
  * @author tamara
  */
 public final class Jogo {
-    private final static int classificacaoIndicativa=8;
 	private static BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in));
 	private Deck deck;
 	private JogadorUsuario player;
@@ -25,9 +24,9 @@ public final class Jogo {
             this.player = new JogadorUsuario(Jogo.Nome());
             this.opcaoMenu();
 		
-            final int cartasJ[] = player.getDeck();
-            for(int i = 0; i<cartasJ.length; i++){
-                System.out.print(cartasJ[i]+"  ");
+            final int cartasJU[] = player.getDeck();
+            for(int i = 0; i<cartasJU.length; i++){
+                System.out.print(cartasJU[i]+"  ");
             }
 		System.out.println();
 		final int cartasJV[]=computador.getDeck();
@@ -62,33 +61,7 @@ public final class Jogo {
 		}
 		return nome;
 	}
-	private static int Idade(){
-		int idade=0;
-		while(true){
-			try{
-				System.out.println("Digite sua idade:");
-				idade = Integer.parseInt(Jogo.bufferRead.readLine());
-				
-			}catch(NullPointerException nullPointerException){
-				System.exit(0);
-			}catch(IOException iOException){
-				iOException.printStackTrace();
-			}catch(NumberFormatException numberFormatException){
-				System.out.println("Erro! Nenhuma idade digitada.");
-				continue;
-			}
-			if(idade<=0){
-				System.out.println("Digite uma idade válida");
-				continue;
-			}else{
-				break;
-			}
-		}
-		if(idade<=classificacaoIndicativa){
-			System.out.println("A idade recomendada para jogar é de "+(classificacaoIndicativa+1)+ " anos de idade.");
-		}
-		return idade;
-	}
+        
 	public void opcaoMenu(){
 		
 		boolean validarMenu = true;
@@ -126,7 +99,7 @@ public final class Jogo {
 						opcao=Jogo.bufferRead.readLine();
 						if(opcao.equals("1") || opcao.equals("2")){
 							if(opcao.equals("2")){
-								JogadorUsuario.setDificuldade("Difícil");
+								JogadorVirtual.setDificuldade("Difícil");
 							}
 						}else continue;
 						fakeClear();
@@ -170,24 +143,16 @@ public final class Jogo {
 	public static void instrucoes(){
 		System.out.println("Instruções:");
 		System.out.println("A cada rodada, o jogador que ganhou a ultima rodada escolhe o atributo da carta que será utilizado na disputa.");
-		System.out.println("OFFNURT:");
+		System.out.println("Trunfo:");
 		
 	}
 	public static void menu(){
-		//Achar uma maneira de limpar o console(semelhante o system("cls") de C). Dica: Usar classe Console(java.io.Console).
-		System.out.println("OFFNURT:");
 		System.out.println("1) Jogar");
 		System.out.println("2) Instruções");
-		System.out.println("3) Dificuldade("+JogadorUsuario.getDificuldade()+")");
-		System.out.println("4) Sobre o jogo");
-		System.out.println("5) Créditos");
+		System.out.println("3) Dificuldade("+JogadorVirtual.getDificuldade()+")");
 		System.out.println("0) Sair");
 	}
-
-	public static int getClassificacaoindicativa() {
-		return classificacaoIndicativa;
-	}
-
+        
 	public Deck getDeck() {
 		return deck;
 	}
@@ -210,7 +175,7 @@ public final class Jogo {
 				deck.mostrarCarta(deck.getDeck(player)[i]);
 				if(escolha){
 					do{
-						System.out.println("Digite o atributo que deseja comparar\n1) Inovação 2) Grafico 3) Jogabilidade 4) Preço 5) Popularidade: ");
+						System.out.println("Digite o atributo que deseja comparar\n1) Forca 2) Velocidade 3) Habilidade 4) Equipamento 5) Inteligencia: ");
 						try{
 							opcaoAtributo=Integer.parseInt(Jogo.bufferRead.readLine());
 							break;

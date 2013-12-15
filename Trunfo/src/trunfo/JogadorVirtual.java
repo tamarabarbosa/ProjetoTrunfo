@@ -75,12 +75,18 @@ public class JogadorVirtual extends Jogador{
 		this.setNomeDoJogador();
 	}
 	
-	private void setNomeDoJogador(){
-		this.setNomeDoJogador();
+	@Override
+	public void setNomeDoJogador(){
+            this.setNomeDoJogador(nomes[((int)( Math.random() * nomes.length))]); 
 	}
         
-        public String[] getFraseDeApresentacao(){
-		return this.fraseDeApresentacao;//argumento aleatorio
+        @Override
+        public void setNomeDoJogador(String nomeDoJogador) {
+            this.nomeDoJogador = nomeDoJogador;
+        }
+        
+        public String getFraseDeApresentacao(){
+		return this.fraseDeApresentacao[((int)( Math.random() * fraseDeApresentacao.length))]; 
 	}
         
     public int escolheAtributo(Deck deck, int posicao){
@@ -99,4 +105,13 @@ public class JogadorVirtual extends Jogador{
 	}
 	return escolhido;
     }
+    
+    public static void setDificuldade(String dif){
+		if(dif.equalsIgnoreCase("dificil") || dif.equalsIgnoreCase("difícil")){
+			Jogador.dificuldade="Difícil";
+		}else Jogador.dificuldade="Fácil";
+	}
+	public static String getDificuldade(){
+		return Jogador.dificuldade;
+	}
 }

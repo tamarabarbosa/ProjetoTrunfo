@@ -110,7 +110,7 @@ public class Deck {
     
     private final int DIM = todasCartas.length;
 	private final int TAM = todasCartas.length/2;
-	private int[] deckJ = new int[TAM];
+	private int[] deckJU = new int[TAM];
 	private int[] deckJV = new int[TAM];
 	
 	public Deck(){
@@ -118,15 +118,12 @@ public class Deck {
 	}
 
 	public void deckAleatorio(){
-		/* Gera [deckJ.length] posições aleatórias de cartas do vetor 
-		 * todasCartas (DIM).
-		 * Armazena essas posições no vetor deckJ */
-		for(int i = 0 ; i < this.deckJ.length ; i++){
-			this.deckJ[i] = (( int ) ( Math.random() * DIM));
+		for(int i = 0 ; i < this.deckJU.length ; i++){
+			this.deckJU[i] = (( int ) ( Math.random() * DIM));
 			for(int y = 0 ; y < i ; y++){
 				
-				if(deckJ[i] == deckJ[y]){
-					this.deckJ[i] = (( int ) ( Math.random() * DIM));
+				if(deckJU[i] == deckJU[y]){
+					this.deckJU[i] = (( int ) ( Math.random() * DIM));
 					y = -1;
 				}else{
 					continue;
@@ -134,13 +131,13 @@ public class Deck {
 			}
 		}
 		//this.deckJ=this.embaralharDeck(deckJ);
-		this.deckAleatorio(deckJ);
+		this.deckAleatorio(deckJU);
 	}
 	
 	private void deckAleatorio(final int[] cartas){
 		boolean cartaExiste=false;
 		for(int i = 0, j=0 ; (i < todasCartas.length) || (j>=TAM) ; i++){
-			for(int y=0; y < deckJ.length; y++){
+			for(int y=0; y < deckJU.length; y++){
 					if(cartaExiste=(cartas[y]==i)){
 						/* Se a carta ja existir em algum deck, a varredura
 						 *  do vetor de cartas(o deck)é interrompida e 
@@ -202,7 +199,7 @@ public class Deck {
 		if(jogador instanceof JogadorVirtual){
 			return deckJV;
 		}else{
-			return deckJ;
+			return deckJU;
 		}
 	}
 	
@@ -212,9 +209,9 @@ public class Deck {
             }
             else{
                 for(int i = 0 ; i < TAM ; i++){
-                    this.deckJ[i] = cartas[i];
+                    this.deckJU[i] = cartas[i];
 		}
-		this.deckAleatorio(deckJ);
+		this.deckAleatorio(deckJU);
             }
         }
 	

@@ -30,20 +30,16 @@ public class Jogador {
 		return nomeDoJogador;
 	}
 	public void setNomeDoJogador(String nomeDoJogador) {
-		this.nomeDoJogador = nomeDoJogador;
+		
 	}
+        
+        public void setNomeDoJogador() {
+	}
+        
 	public int[] getDeck() {
 		return deckCartas;
 	}
 	public void setDeckCartas(int[] deckCartas) {
 		this.deckCartas = deckCartas;
-	}
-	public static void setDificuldade(String dif){
-		if(dif.equalsIgnoreCase("dificil") || dif.equalsIgnoreCase("difícil")){
-			Jogador.dificuldade="Difícil";
-		}else Jogador.dificuldade="Fácil";
-	}
-	public static String getDificuldade(){
-		return Jogador.dificuldade;
 	}
 }
