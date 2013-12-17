@@ -132,9 +132,10 @@ public final class Jogo {
 		}	
 	}
 	public static void instrucoes(){
+                System.out.println("Trunfo:");
 		System.out.println("Instruções:");
 		System.out.println("A cada rodada, o jogador que ganhou a ultima rodada escolhe o atributo da carta que será utilizado na disputa.");
-		System.out.println("Trunfo:");
+		
 		
 	}
 	public static void menu(){
